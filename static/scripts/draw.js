@@ -9,6 +9,9 @@ function draw_pie(div_id, data, title) {
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
+        credits: {
+             enabled: false
+        },
         series: [{
             name: 'Brands',
             colorByPoint: true,
@@ -22,6 +25,9 @@ function draw_bar(div_id, data, title) {
     return Highcharts.chart(div_id, {
         chart: {
             type: 'bar'
+        },
+        credits: {
+             enabled: false
         },
         title: {
             text: title

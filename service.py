@@ -83,3 +83,20 @@ class NginxLogService(object):
             })
 
         return phone_os_versions_count_return
+
+    def get_phone_brands_count(self):
+        """
+        获取手机各个品牌数量
+        :return
+        """
+        phone_brands_count = self.db_session \
+            .query(NginxLog.phone_brand, func.count(NginxLog.phone_brand).label("count")) \
+            .group_by(NginxLog.phone_brand).all()
+        phone_brands_count_return = []
+        for phone_brand, count in phone_brands_count:
+            phone_brands_count_return.append({
+                "name": phone_brand,
+                "y": count
+            })
+
+        return phone_brands_count_return

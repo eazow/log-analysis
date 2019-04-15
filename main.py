@@ -35,3 +35,10 @@ class NginxLogMain(object):
         :return:
         """
         return self.nginx_log_service.get_os_versions_count(ANDROID) + self.nginx_log_service.get_os_versions_count(IOS)
+
+    def get_phone_brands_count(self):
+        """
+        获取手机各个品牌数量
+        :return
+        """
+        return self.nginx_log_service.get_phone_brands_count()

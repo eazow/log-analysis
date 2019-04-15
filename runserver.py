@@ -62,6 +62,19 @@ def get_android_ios_versions_count():
         return jsonify({"code": 200, "status": ERROR, "data": [], "message": "error"})
     return jsonify({"code": 200, "status": SUCCESS, "data": android_ios_versions_count, "message": "success"})
 
+@app.route("/phone_brands_count", methods=["GET"])
+def get_phone_brands_count():
+    """
+    获取手机各个品牌数量
+    :return:
+    """
+    try:
+        phone_brands_count = NginxLogMain(db_session).get_phone_brands_count()
+    except Exception, e:
+        traceback.print_exc()
+        return jsonify({"code": 200, "status": ERROR, "data": [], "message": "error"})
+    return jsonify({"code": 200, "status": SUCCESS, "data": phone_brands_count, "message": "success"})
+
 
 @app.route("/", methods=["GET"])
 def index():

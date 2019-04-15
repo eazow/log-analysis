@@ -21,14 +21,9 @@ python log_analysis.py
 ### 5. 访问日志分析平台
 http://127.0.0.1:5000
 
-### 6. 展示图
-![image.png](https://upload-images.jianshu.io/upload_images/1425939-ced724648f22c8eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 6. UI
+![image.png](https://upload-images.jianshu.io/upload_images/1425939-62418cb40a5e4576.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![image.png](https://upload-images.jianshu.io/upload_images/1425939-b3fd5058a1289e01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![image.png](https://upload-images.jianshu.io/upload_images/1425939-95afc919f428ea4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![image.png](https://upload-images.jianshu.io/upload_images/1425939-9042739c18bfeb05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 7. 扩展
 1. 可展示手机品牌分布

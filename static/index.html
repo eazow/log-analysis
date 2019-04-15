@@ -8,13 +8,15 @@
     <script src="/static/scripts/draw.js"></script>
 </head>
 <body>
-    <div id="top10_urls_div" style="position: absolute; width: 600px; height: 500px"></div>
+    <div id="top10_urls_div" style="position: absolute; width: 400px; height: 400px"></div>
 
-    <div id="top10_ips_div" style="position: absolute; left: 800px; width: 600px; height: 500px"></div>
+    <div id="top10_ips_div" style="position: absolute; left: 500px; width: 400px; height: 400px"></div>
 
-    <div id="android_ios_div" style="position: absolute; top: 600px; width: 600px; height: 500px"></div>
+    <div id="phone_brands_div" style="position: absolute; left: 1000px; width: 400px; height: 400px"></div>
 
-    <div id="android_ios_versions_div" style="position: absolute; left: 800px; top: 600px; width: 600px; height: 500px"></div>
+    <div id="android_ios_div" style="position: absolute; top: 500px; width: 400px; height: 400px"></div>
+
+    <div id="android_ios_versions_div" style="position: absolute; left: 500px; top: 500px; width: 400px; height: 400px"></div>
 </body>
 </html>
 
@@ -31,14 +33,19 @@ jQuery.getJSON(top10_src_ips_url, function(response_data) {
     draw_bar('top10_ips_div', response_data["data"], '源IP访问次数Top 10');
 });
 
+const phone_brands_count_url = "http://127.0.0.1:5000/phone_brands_count";
+jQuery.getJSON(phone_brands_count_url, function(response_data) {
+    draw_pie('phone_brands_div', response_data["data"], '手机品牌分布')
+});
+
 const android_ios_count_url = "http://127.0.0.1:5000/android_ios_count";
 jQuery.getJSON(android_ios_count_url, function(response_data) {
-    android_ios_chart = draw_pie('android_ios_div', response_data["data"], 'Android IOS占比')
+    draw_pie('android_ios_div', response_data["data"], 'Android IOS占比')
 });
 
 const android_ios_versions_count_url = "http://127.0.0.1:5000/android_ios_versions_count";
 jQuery.getJSON(android_ios_versions_count_url, function(response_data) {
-    android_ios_chart = draw_pie('android_ios_versions_div', response_data["data"], 'Android IOS各版本分布情况')
+    draw_pie('android_ios_versions_div', response_data["data"], 'Android IOS各版本分布情况')
 });
 
 </script>
