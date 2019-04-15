@@ -1,4 +1,4 @@
-# nginx 日志处理
+# nginx 日志分析
 
 #### 1. 准备
 需要安装python, flask, sqlalchemy, pymysql, mysql
@@ -25,8 +25,10 @@ http://127.0.0.1:5000
 ![image.png](https://upload-images.jianshu.io/upload_images/1425939-62418cb40a5e4576.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### 7. 说明
-* main.py: 数据库操作业务层，调用service提供的接口
-* service.py: 数据库操作服务层
+- main.py: 数据库操作业务层，调用service提供的接口
+- service.py: 数据库操作服务层
+- runserver.py: 日志展示平台启动脚本
+- log_analysis.py: 日志处理脚本，将nginx日志处理后存入数据库
 
 #### 8. Todo
 - 通过ip geo关系，获取源ip的地理位置，可展示源ip的城市分布情况
