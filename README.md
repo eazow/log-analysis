@@ -24,8 +24,10 @@ http://127.0.0.1:5000
 #### 6. UI
 ![image.png](https://upload-images.jianshu.io/upload_images/1425939-62418cb40a5e4576.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+#### 7. 说明
+main.py: 数据库操作业务层，调用service提供的接口
+service.py: 数据库操作服务层
 
-#### 7. 扩展
-1) 可展示手机品牌分布
-2) 通过ip geo关系，获取源ip的地理位置，可展示源ip的城市分布情况
-3) 若处理的是nginx的实时日志，可按天、或小时分割nginx日志至logs目录，并将log_analysis改造为线程运行，实时处理日志文件
+#### 8. Todo
+1) 通过ip geo关系，获取源ip的地理位置，可展示源ip的城市分布情况
+2) 若处理的是nginx的实时日志，可按天、或小时分割nginx日志至logs目录，并将log_analysis改造为线程运行，实时处理日志文件
