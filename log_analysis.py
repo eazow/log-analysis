@@ -130,13 +130,6 @@ def parse_phone_info(user_agent):
             # todo 提取手机型号
             phone_model = ""
 
-            # android版本
-            # phone_os_match_obj = re.search(ANDROID_VERSION_REGEX, user_agent_lower)
-            # if phone_os_match_obj:
-            #     phone_os_version = phone_os_match_obj.group(0)
-            # else:
-            #     logging.warning("can't find android version, user_agent: %s" % user_agent)
-
     # (iPhone 6; iOS 8.1.1; Scale / 2.00)
     # (iPhone; CPU iPhone OS 11_2_5 like Mac OS X)
     # iPhone8,2归为iphone8
@@ -162,7 +155,7 @@ def parse_phone_info(user_agent):
 
 if __name__ == "__main__":
     try:
-        logging.basicConfig(filename = "log_analysis.log", level=logging.DEBUG, datefmt="%Y-%m-%d %H:%M:%S",
+        logging.basicConfig(filename="log_analysis.log", level=logging.DEBUG, datefmt="%Y-%m-%d %H:%M:%S",
                             format="%(asctime)s-%(levelname)s-%(lineno)d-%(message)s")
         start_time = time.time() * 1000
         analysis(NGINX_LOG_PATH)
