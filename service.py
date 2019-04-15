@@ -6,8 +6,6 @@ import os
 import time
 
 from db.models import NginxLog
-from error import CustomError
-from settings import TASK_JSON_PATH, SCRIPTS_DIR_PATH, LOGS_DIR_PATH
 from sqlalchemy import func, desc
 
 
