@@ -4,8 +4,8 @@
 需要安装python, flask, sqlalchemy, pymysql, mysql
 
 #### 2. 配置数据库
-执行sqls文件夹中的init_db.sql
-修改setings.py中MYSQL_URI的用户名密码
+- 执行sqls文件夹中的init_db.sql
+- 修改setings.py中MYSQL_URI的用户名密码
 
 #### 3. 启动日志分析平台
 ```
