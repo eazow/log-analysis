@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日志分析系统</title>
+    <script src="/static/scripts/highcharts.js"></script>
+    <script src="/static/scripts/jquery.js"></script>
+    <script src="/static/scripts/draw.js"></script>
+</head>
+<body>
+    <div id="top10_urls_div" style="position: absolute; width: 600px; height: 500px"></div>
+
+    <div id="top10_ips_div" style="position: absolute; left: 800px; width: 600px; height: 500px"></div>
+
+    <div id="android_ios_div" style="position: absolute; top: 600px; width: 600px; height: 500px"></div>
+
+    <div id="android_ios_versions_div" style="position: absolute; left: 800px; top: 600px; width: 600px; height: 500px"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+const top10_urls_url = "http://127.0.0.1:5000/get_top10_urls";
+jQuery.getJSON(top10_urls_url, function(response_data) {
+    draw_bar('top10_urls_div', response_data["data"], 'URL访问Top 10');
+});
+
+
+const top10_src_ips_url = "http://127.0.0.1:5000/get_top10_src_ips";
+jQuery.getJSON(top10_src_ips_url, function(response_data) {
+    draw_bar('top10_ips_div', response_data["data"], '源IP访问次数Top 10');
+});
+
+const android_ios_count_url = "http://127.0.0.1:5000/get_android_ios_count";
+jQuery.getJSON(android_ios_count_url, function(response_data) {
+    android_ios_chart = draw_pie('android_ios_div', response_data["data"])
+});
+
+const android_ios_versions_count_url = "http://127.0.0.1:5000/get_android_ios_versions_count";
+jQuery.getJSON(android_ios_versions_count_url, function(response_data) {
+    android_ios_chart = draw_pie('android_ios_versions_div', response_data["data"])
+});
+
+</script>
