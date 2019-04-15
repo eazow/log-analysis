@@ -20,25 +20,25 @@
 
 <script type="text/javascript">
 
-const top10_urls_url = "http://127.0.0.1:5000/get_top10_urls";
+const top10_urls_url = "http://127.0.0.1:5000/top10_urls";
 jQuery.getJSON(top10_urls_url, function(response_data) {
     draw_bar('top10_urls_div', response_data["data"], 'URL访问Top 10');
 });
 
 
-const top10_src_ips_url = "http://127.0.0.1:5000/get_top10_src_ips";
+const top10_src_ips_url = "http://127.0.0.1:5000/top10_src_ips";
 jQuery.getJSON(top10_src_ips_url, function(response_data) {
     draw_bar('top10_ips_div', response_data["data"], '源IP访问次数Top 10');
 });
 
-const android_ios_count_url = "http://127.0.0.1:5000/get_android_ios_count";
+const android_ios_count_url = "http://127.0.0.1:5000/android_ios_count";
 jQuery.getJSON(android_ios_count_url, function(response_data) {
-    android_ios_chart = draw_pie('android_ios_div', response_data["data"])
+    android_ios_chart = draw_pie('android_ios_div', response_data["data"], 'Android IOS占比')
 });
 
-const android_ios_versions_count_url = "http://127.0.0.1:5000/get_android_ios_versions_count";
+const android_ios_versions_count_url = "http://127.0.0.1:5000/android_ios_versions_count";
 jQuery.getJSON(android_ios_versions_count_url, function(response_data) {
-    android_ios_chart = draw_pie('android_ios_versions_div', response_data["data"])
+    android_ios_chart = draw_pie('android_ios_versions_div', response_data["data"], 'Android IOS各版本分布情况')
 });
 
 </script>

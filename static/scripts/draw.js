@@ -1,10 +1,10 @@
-function draw_pie(div_id, data) {
+function draw_pie(div_id, data, title) {
     return Highcharts.chart(div_id, {
         chart: {
             type: 'pie'
         },
         title: {
-            text: 'Android IOS占比'
+            text: title
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
