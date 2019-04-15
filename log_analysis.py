@@ -68,7 +68,7 @@ def parse_log_file(log_path):
                 # 解析手机信息，返回手机类型、品牌、型号、os类型、os版本
                 phone_type, phone_brand, phone_model, phone_os_type, phone_os_version = parse_phone_info(user_agent)
 
-                # 还需要处理request_time, 格式16/Mar/2018:20:29:59 +0800
+                # 处理request_time, 格式16/Mar/2018:20:29:59 +0800
                 request_time = datetime.datetime.strptime(request_time, "%d/%b/%Y:%H:%M:%S +0800")
 
                 nginx_log = NginxLog(dst_ip=dst_ip, request_time=request_time, request_line=request_line,
@@ -161,10 +161,13 @@ def parse_phone_info(user_agent):
 
 
 if __name__ == "__main__":
-    # filename = "log_analysis.log",
-    logging.basicConfig(level=logging.DEBUG, datefmt="%Y-%m-%d %H:%M:%S",
-                        format="%(asctime)s-%(levelname)s-%(lineno)d-%(message)s")
-    start_time = time.time() * 1000
-    analysis(NGINX_LOG_PATH)
-    end_time = time.time() * 1000
-    logging.debug("spend time: %s ms " % (end_time - start_time))
+    try:
+        logging.basicConfig(filename = "log_analysis.log", level=logging.DEBUG, datefmt="%Y-%m-%d %H:%M:%S",
+                            format="%(asctime)s-%(levelname)s-%(lineno)d-%(message)s")
+        start_time = time.time() * 1000
+        analysis(NGINX_LOG_PATH)
+        end_time = time.time() * 1000
+        logging.debug("spend time: %s ms " % (end_time - start_time))
+    except Exception, e:
+        traceback.print_exc()
+        logging.exception(e)
